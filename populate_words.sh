@@ -1,0 +1,1 @@
+ls ./dicts/*.dic | xargs -I {} python3 add_words.py "-c{}"

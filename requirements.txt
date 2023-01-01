@@ -1,0 +1,6 @@
+python-telegram-bot<=19.0
+psycopg2
+peewee
+python-dotenv
+jaconv
+tqdm

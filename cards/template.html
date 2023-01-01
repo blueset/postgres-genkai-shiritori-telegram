@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="wrapper">
+            <img src="./template.webp" alt="">
+            <div id="word"><span>あ</span></div>
+            <div id="count"><span>8<sup>+</sup></span></div>
+        </div>
+    </main>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        main {
+            width: 307px;
+            height: 207px;
+        }
+        .wrapper {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 0.8rem;
+            box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.5);
+        }
+        div {
+            position: absolute;
+            font-family: "M+ 1p";
+            font-weight: 900;
+            font-size: 80px;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            line-height: 1;
+        }
+        #word {
+            left: 16%;
+        }
+        #count {
+            right: 13%;
+            width: 1.2em;
+        }
+        sup {
+            line-height: 0.2;
+            max-height: 0;
+            /* width: 0.1em; */
+            margin-left: -0.1em;
+            display: inline-block;
+        }
+    </style>
+</body>
+</html>

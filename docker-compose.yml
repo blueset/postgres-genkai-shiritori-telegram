@@ -1,0 +1,42 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres
+    restart: on-failure
+    environment: 
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=genkai-shiritori
+    env_file:
+      - database.env
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - "55432:5432"
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./db_schema.sql:/docker-entrypoint-initdb.d/db_schema.sql
+  bot:
+    build: .
+    restart: on-failure
+    volumes:
+      - ./dicts:/genkai-shiritori/dicts
+    depends_on:
+      - postgres
+    env_file:
+      - bot.env
+    ports:
+      - "58000:8000"
+    environment:
+      - DATABASE_USER=postgres
+      - DATABASE_NAME=genkai-shiritori
+      - DATABASE_HOST=postgres
+      - DATABASE_PORT=5432
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+
+volumes:
+    postgres:
